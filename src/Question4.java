@@ -45,7 +45,13 @@ public class Question4 {
             switch (currentMode){
                 case MENU: {
                     System.out.print("Please enter an option: \n- SHOW all offences for a plate\n- ADD an offense to a plate\n- SAVE and Exit\n> ");
-                    currentMode = Mode.valueOf(in.nextLine().toUpperCase());
+                    try{
+                        currentMode = Mode.valueOf(in.nextLine().toUpperCase());
+                    }
+                    catch(IllegalArgumentException e){
+                        System.out.println("Invalid option!");
+                    }
+
                     break;
                 }
                 case SHOW: {
